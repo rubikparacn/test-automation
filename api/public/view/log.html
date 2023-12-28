@@ -1,0 +1,19 @@
+<div>
+    <div id="items">
+
+    </div>
+</div>
+
+<script>
+    setInterval(() => {
+        fetch('/logs').then(t => t.json()).then(t => {
+            document.querySelector('#items').innerHTML='';
+            for (let i = 0; i < t.length; i++) {
+                const item = t[i];
+                let a = document.createElement('div');
+                a.innerText = item;
+                document.querySelector('#items').append(a);
+            }
+        })
+    }, 10 * 1000)
+</script>

@@ -1,0 +1,18 @@
+<center>
+    <input id="code" placeholder="otp code" />
+
+
+
+</center>
+
+<script>
+
+    document.querySelector('#code').onkeydown = (e) => {
+        console.log(e);
+        if (e.key == 'Enter') {
+            location.href = '/otp?code=' + e.target.value;
+        }
+    }
+
+
+</script>

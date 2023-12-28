@@ -1,0 +1,21 @@
+<div>
+    <div id="items">
+
+    </div>
+    <div>
+        <a href="report">son rapor</a>
+    </div>
+</div>
+
+<script>
+    fetch('/list').then(t => t.json()).then(t => {
+
+        for (let i = 0; i < t.length; i++) {
+            const item = t[i];
+            let a = document.createElement('a');
+            a.href = '/run?id=' + i;
+            a.innerText = item;
+            document.querySelector('#items').append(a);
+        }
+    })
+</script>

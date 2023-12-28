@@ -18,8 +18,40 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+// const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
-Cypress.on('fail', (x) => {
-    console.log("hellowwww", x)
-    // Cypress.runner.stop()
+// import fetch from 'node-fetch';
+Cypress.on('fail', (err, runnable) => {
+  // Cypress.runner.stop();
+  // Cypress.Screenshot();
+
+  // try {
+  //   fetch('http://localhost:5296/Email', {
+  //     method: 'post',
+  //     body: JSON.stringify({
+  //       "subject": "Test Fail",
+  //       "body": "Hata detayları için rapor alanını kontrol ediniz",
+  //       "to": [
+  //         "cihan.nalbant@rubikpara.com",
+  //         //   "ismail.sevinc@rubikpara.com",
+  //         //   "onur"
+  //       ]
+  //     })
+  //   })
+  // } catch (error) {
+  //   //TODO:
+  // }
+
+  throw err
+  // return false
 })
+// Cypress.on('command:end', (test) => {
+//   if (test.state === 'failed'|| test.state === 'passed') {
+//       return q.fcall(function () {
+//       }).delay(4000);
+//   }
+// });
+
+import 'cypress-mochawesome-reporter/register';
+
+

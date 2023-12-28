@@ -1,0 +1,11 @@
+# dotnet publish -c Release
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+# COPY ../../Api/bin/publish .
+# COPY ./bin/publish .
+COPY ./bin/Release/net8.0 .
+
+
+ENTRYPOINT ["dotnet", "Design.dll"]
