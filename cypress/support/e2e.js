@@ -26,7 +26,28 @@ Cypress.on('fail', (err, runnable) => {
   // Cypress.Screenshot();
 
   
+  // execSync('node ./notify.js');
   
+
+  setTimeout(() => {
+    fetch('http://localhost:5296/Email', {
+        headers: {
+            'content-type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({
+            "subject": "Test Fail",
+            "body": "Hata detayları için rapor alanını kontrol ediniz",
+            "to": [
+                "cihan.nalbant@rubikpara.com",
+                //   "ismail.sevinc@rubikpara.com",
+                //   "onur"
+            ]
+        })
+    })
+    Cypress.runner.end();
+    
+  }, 1000);
 
   throw err
   // return false

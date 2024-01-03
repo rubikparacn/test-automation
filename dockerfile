@@ -14,15 +14,16 @@ RUN export DOTNET_ROOT=$HOME/.dotnet && export PATH=$PATH:$DOTNET_ROOT:$DOTNET_R
 
 
 WORKDIR /opt/app
-COPY . .
+COPY . ./test-automation
 # RUN git clone https://github.com/rubikparacn/test-automation.git 
 # WORKDIR /opt/app test-automation
 RUN npm install
 
-# Cron
+# Cron schedule
 RUN crontab <<EOF
-00 09 * * 1-5 echo hello
+03 * * * * /opt/app/test-automation/run.sh
 EOF
+RUN service cron restart
 
 
 EXPOSE 2112

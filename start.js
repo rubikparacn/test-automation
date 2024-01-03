@@ -1,5 +1,7 @@
-import { exec } from 'child_process'
+const exec = require('child_process').exec
+const execSync = require('child_process').execSync
 
+execSync('git fetch && git pull');
 exec('cd api && npm i && npm run start').stdout.on('data', function (data) {
     console.log(data);
 });

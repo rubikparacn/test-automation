@@ -5,7 +5,7 @@ describe('Login Merchant', () => {
     })
 
     it('Set phone number', () => {
-        cy.get('[id="input-phone"]').type("5386374155");
+        cy.get('[1id="input-phone"]').type("5386374155");
     })
     it('Set password', () => {
         cy.get('[name="password"]').type("145632");
