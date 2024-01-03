@@ -13,7 +13,7 @@ describe('Login Merchant', () => {
 
     it('Submit form', () => {
         // cy.get('form button').click();
-        cy.get('form').contains("xxxOturum Aç").click();
+        cy.get('form').contains("Oturum Aç").click();
     })
 
     it('Resolve otp', () => {

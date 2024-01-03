@@ -24,12 +24,15 @@ app.get("/list", async (req, res) => {
 
 let logs = [];
 app.get("/run", async (req, res) => {
-    // let ex = exec('cd ../ && npx cypress run  --spec=' + list[req.query.id].value);
-    let ex = exec('cd ../ && npm run docker');
+    let ex = exec('cd ../ && npx cypress run  --spec=' + list[req.query.id].value);
+    // let ex = exec('cd ../ && npm run docker2');
 
     ex.stdout.on('data', function (data) {
         console.log(data);
-        logs.push(data);
+        logs.push({
+            data,
+            date: new Date(),
+        });
     });
     res.redirect('view/otp.html')
 });
@@ -48,7 +51,7 @@ app.get("/otp", async (req, res) => {
 app.use(express.static('public'))
 
 
-app.listen(2000);
-console.log("started: 2000");
+app.listen(2112);
+console.log("started: 2112");
 let r = { app };
 export default r;

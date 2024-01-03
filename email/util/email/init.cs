@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Mail;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace util.email;
 
@@ -60,6 +59,8 @@ public partial class Instance
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            Console.WriteLine(ex);
+
         }
     }
 }
