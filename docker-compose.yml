@@ -1,33 +1,21 @@
-version: "3.8"
+version: "3.9"
 services:
-    testauto:
-        container_name: test-automation
+    automation:
+        container_name: automation
         build:
           context: .
           dockerfile: dockerfile
         ports:
-            - "2000:2000"
+            - "2112:2112"
+            # - "5296:5296"
         extra_hosts:
             - "host.docker.internal:host-gateway"
         networks:
             - default
 
-    emailer:
-        container_name: emailer
-        build:
-          context: ./email
-          dockerfile: dockerfile
-        ports:
-            - "5296:5296"
-        extra_hosts:
-            - "host.docker.internal:host-gateway"
-        networks:
-            - default
 
 networks:
   default:
     driver:  bridge
-    # external: 
-    #   name: deploy_default
-    # external: true
+
   

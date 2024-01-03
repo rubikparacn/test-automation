@@ -25,22 +25,8 @@ Cypress.on('fail', (err, runnable) => {
   // Cypress.runner.stop();
   // Cypress.Screenshot();
 
-  // try {
-  //   fetch('http://localhost:5296/Email', {
-  //     method: 'post',
-  //     body: JSON.stringify({
-  //       "subject": "Test Fail",
-  //       "body": "Hata detayları için rapor alanını kontrol ediniz",
-  //       "to": [
-  //         "cihan.nalbant@rubikpara.com",
-  //         //   "ismail.sevinc@rubikpara.com",
-  //         //   "onur"
-  //       ]
-  //     })
-  //   })
-  // } catch (error) {
-  //   //TODO:
-  // }
+  
+  
 
   throw err
   // return false
@@ -53,5 +39,8 @@ Cypress.on('fail', (err, runnable) => {
 // });
 
 import 'cypress-mochawesome-reporter/register';
+
+
+console.log(new Date(), 'hello');
 
 

@@ -5,15 +5,16 @@
 </div>
 
 <script>
-    setInterval(() => {
+    let act = () => {
         fetch('/logs').then(t => t.json()).then(t => {
-            document.querySelector('#items').innerHTML='';
+            document.querySelector('#items').innerHTML = '';
             for (let i = 0; i < t.length; i++) {
                 const item = t[i];
                 let a = document.createElement('div');
-                a.innerText = item;
+                a.innerText = item.data;
                 document.querySelector('#items').append(a);
             }
         })
-    }, 10 * 1000)
+    }
+    setInterval(act, 10 * 1000)
 </script>

@@ -1,15 +1,22 @@
-import { exec } from 'child_process'
-
-let atc = async () => {
-    let ex = exec('cd ../ && npx cypress run  --spec=' + list[req.query.id].value);
-    ex.stdout.on('data', function (data) {
-        console.log(data);
-        logs.push(data);
-    });
-
-
-
-    await new Promise(m => setTimeout(m, 6 * 60 * 60 * 1000))
+try {
+    let x = await fetch('http://localhost:5296/Email', {
+        headers: {
+            'content-type': 'application/json'
+        },
+        method: 'post',
+        body: JSON.stringify({
+            "subject": "Test Fail",
+            "body": "Hata detayları için rapor alanını kontrol ediniz",
+            "to": [
+                "cihan.nalbant@rubikpara.com",
+                //   "ismail.sevinc@rubikpara.com",
+                //   "onur"
+            ]
+        })
+    })
+        .then(t => t.json());
+    console.log(x);
+} catch (error) {
+    //TODO:
+    console.log(error)
 }
-
-atc();
