@@ -83,7 +83,7 @@ describe('Create payment with link', () => {
 
     })
 
-    it('Set callback url', () => {
+    it('Set calback url', () => {
         cy.get('#input-url').type("https://testmerchant.rubikpara.com/link-payment")
         cy.wait(1000);
 
